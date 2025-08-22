@@ -20,10 +20,9 @@ class UserController {
       const user = await this.repository.login(email, password);
       const token = this.repository.generateToken(user);
       /* ------------------------------------ HEADERS ----------------------------------- */
-      // res.header("Authorization", token).json({ user, token });
+      res.header("Authorization", token).json({ user, token });
       /* --------------------------------- COOKIES -------------------------------- */
-      res.cookie('token', token, { httpOnly: true }).json({ user });
-      // res.json(user)
+      // res.cookie('token', token, { httpOnly: true }).json({ user, token });
     } catch (error) {
       next(error);
     }

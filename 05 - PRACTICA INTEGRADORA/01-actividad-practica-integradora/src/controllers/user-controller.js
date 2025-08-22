@@ -22,8 +22,9 @@ class UserController {
       /* ------------------------------------ HEADERS ----------------------------------- */
       // res.header("Authorization", token).json({ user, token });
       /* --------------------------------- COOKIES -------------------------------- */
-      res.cookie('token', token, { httpOnly: true }).json({ user });
-      // res.json(user)
+      res
+        .cookie("currentUser", token, { signed: true, httpOnly: true })
+        .redirect("/users/current");
     } catch (error) {
       next(error);
     }
