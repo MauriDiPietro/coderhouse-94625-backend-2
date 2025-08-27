@@ -46,5 +46,7 @@ passport.deserializeUser(async (id, done) => {
   try {
     const user = await userRepository.getUserById(id);
     return done(null, user);
-  } catch (error) {}
+  } catch (error) {
+    done(error);
+  }
 });
