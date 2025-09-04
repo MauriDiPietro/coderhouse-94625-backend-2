@@ -14,9 +14,11 @@ class UserRepository {
       const { email, password } = body;
       const existUser = await this.dao.getByEmail(email);
       if (existUser) throw new CustomError("El usuario ya existe", 400);
+      //const cart = await daoCart.createCart()
       const response = await this.dao.create({
         ...body,
         password: createHash(password),
+      //cartId: cart._id
       });
       if (!response) throw new CustomError("Error al registrar usuario", 400);
       return response;
