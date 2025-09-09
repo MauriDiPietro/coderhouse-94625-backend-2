@@ -1,0 +1,20 @@
+{
+  "name": "01-arquitectura-capas",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start:mongo": "node --env-file=.env src/server.js mongo",
+    "start:fs": "node --env-file=.env src/server.js fs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mongoose": "^8.18.0",
+    "uuid": "^11.1.0"
+  }
+}

@@ -1,6 +1,6 @@
 import { productDaoFS } from "./filesystem/product-dao.js";
 import { productDaoMongo } from "./mongodb/product-dao.js";
-import { ConectMongoDB } from "../config/connections/mongo-db.js";
+import { initMongoDB } from "../config/connections/mongo-db.js";
 
 let productDao = null;
 // let userDao = null;
@@ -13,8 +13,7 @@ switch (persistence) {
         // userDao = userDaoFS;
         break;
     case 'mongo':
-        // initMongoDB().then(()=>console.log('Connected to MongoDB')).catch(err=>console.log(err));
-        ConectMongoDB.getInstance();
+        initMongoDB().then(()=>console.log('Connected to MongoDB')).catch(err=>console.log(err));
         productDao = productDaoMongo;
         // userDao = userDaoMongo;
     default:
